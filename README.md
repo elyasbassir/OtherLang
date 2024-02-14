@@ -21,7 +21,7 @@
   </p>
 </p>
 
-![Contributors](https://img.shields.io/github/contributors/elyasbassir/Other-Lang?color=dark-green) ![Issues](https://img.shields.io/github/issues/elyasbassir/Other-Lang) 
+![Contributors](https://img.shields.io/github/contributors/elyasbassir/Other-Lang?color=dark-green) ![Issues](https://img.shields.io/github/issues/elyasbassir/Other-Lang)
 
 ## درباره پروژه
 
@@ -33,7 +33,7 @@
 ## خب بیا شروع کنیم
 
 :دوست خوبم اول به چند نکته توجه کن که میگم
-1- اگر میخوای از این پکیج روی هاست اشتراکی استفاده کنید همین الان بیخیالش شو مگر اینکه دسترسی های لازمه رو بهت دادن 
+1- اگر میخوای از این پکیج روی هاست اشتراکی استفاده کنید همین الان بیخیالش شو مگر اینکه دسترسی های لازمه رو بهت دادن
 ۲- اگر میخوای از زبان برنامه نویسی خاصی استفاده کنی اول دقت کن که پیش نیاز های اون زبان رو به درستی نصب کرده که توی کار اذیتت نکنه
 ۳- به امید خدا کار با پکیجو شروع کن :)
 
@@ -45,7 +45,7 @@
 اجرای دستور زیر داخل پروژه
 
 ```sh
-composer require elyasbassir/other-lang
+composer require elyasbassir/other-lang:dev-main
 ```
 
 
@@ -93,4 +93,3 @@ return $response_python;
 <h3>خروجی</h3>
 
 سلام من یک متغییر هستم که از توی لاراول اومدم :)
-
