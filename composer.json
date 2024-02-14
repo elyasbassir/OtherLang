@@ -1,0 +1,18 @@
+{
+    "name": "elyasbassir/other-lang",
+    "description": "you can use other programming language in laravel :)",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "elyasbassir",
+            "email": "elyas.bassir@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "elyasbassir\\OtherLang\\": "src/"
+        }
+    },
+    "require": {}
+}
