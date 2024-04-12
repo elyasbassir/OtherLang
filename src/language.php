@@ -3,14 +3,23 @@
 namespace elyasbassir\OtherLang;
 
 
-
 class language
 {
     /*
     variable $response response execute code that language.
     */
-    private static $response, $language, $name_file,$code;
+    private static $response, $language, $name_file, $code;
     private static array $data = [];
+
+    public function delete_file()
+    {
+        $address = __DIR__ . '/execution/' . self::$name_file;
+        if (file_exists($address)) {
+            unlink($address); //delete file
+        }
+        return true;
+    }
+
     /*
 this function can execute python code
 */
@@ -20,11 +29,10 @@ this function can execute python code
         self::$code = $code;
         return $this;
     }
-    public function send_data(array $data): Object
-    {
-        self::$data = $data;
-        return $this;
-    }
+
+    /*
+    this function run code cpp language
+    */
 
     private static function create_file($file_name, $code): void
     {
@@ -37,11 +45,8 @@ this function can execute python code
     /*
 this function delete all file from folder execution
     */
-    public function __destruct()
-    {
-        // unlink(__DIR__ . '/execution/' . self::$name_file); //delete file
-        return true;
-    }
+
+
     /*
 this function show variable $response  which inside that is response execution code
     */
@@ -49,27 +54,9 @@ this function show variable $response  which inside that is response execution c
     {
         switch (self::$language) {
             case "python":
-                if(count(self::$data) > 0){
-                    self::create_file("main.py", <<<EOT
-                    import argparse
-                    import json
-                    import sys
-
-                    laravel = {}
-                    parser = argparse.ArgumentParser(description="Process dynamic input data")
-                    parser.add_argument("data", help="JSON data as input", type=str)
-                    args = parser.parse_args()
-                    data = json.loads(args.data)
-                    for key, value in data.items():
-                        laravel[key] = value
-
-
-                    EOT . self::$code);
-                }else{
-                    self::create_file("main.py",self::$code);
-                }
+                self::create_file("main.py", self::$code);
                 self::$response = shell_exec("python " . __DIR__ . "/execution/" . self::$name_file . " '" . json_encode(self::$data) . "' 2>&1");
-
+                $this->delete_file();
                 break;
         }
         return self::$response;
